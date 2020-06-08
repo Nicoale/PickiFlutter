@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:picki/Screens/Login/components/already_have_an_account.dart';
 import 'package:picki/Screens/Login/components/background.dart';
 import 'package:picki/Screens/Login/components/rounded_Input.dart';
 import 'package:picki/Screens/Login/components/rounded_password.dart';
+import 'package:picki/Screens/SignUp/signup_screen.dart';
 import 'package:picki/components/rounded_button.dart';
 import 'package:picki/constant.dart';
 
@@ -22,10 +24,12 @@ class Body extends StatelessWidget {
             "LOGIN",
             style: TextStyle(fontWeight: FontWeight.bold),
           ),
+          SizedBox(height: size.height *0.03),
           SvgPicture.asset(
             "assets/icons/cooking.svg",
             height: size.height * 0.35,
           ),
+          SizedBox(height: size.height *0.03),
           RoundedInputField(
             hintText: "Your  Email",
             onChanged: (value) {},
@@ -37,39 +41,22 @@ class Body extends StatelessWidget {
             text: "LOGIN",
             press: () {},
           ),
-          AlreadyHaveAccountWidget()
+          SizedBox(height: size.height *0.03),
+          AlreadyHaveAccountWidget(
+            press: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context){
+                    return SignupScreen();
+                  }
+                  )
+              );
+            },
+            ),
         ],
       ),
     );
   }
 }
 
-class AlreadyHaveAccountWidget extends StatelessWidget {
-  final bool login;
-  final Function press;
-  const AlreadyHaveAccountWidget({
-    Key key,
-    this.login = true,
-    this.press,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
-      Text(
-        login ? "Dont have an Account?":"Already have an Account?",
-        style: TextStyle(color: kPrimaryColor),
-      ),
-      GestureDetector(
-        onTap: press,
-        child: Text(
-         login ?  "Sign Up": "Sign In",
-          style: TextStyle(
-            color: kPrimaryColor,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ),
-    ]);
-  }
-}
