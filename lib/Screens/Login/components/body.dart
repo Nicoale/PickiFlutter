@@ -4,9 +4,8 @@ import 'package:picki/Screens/Login/components/already_have_an_account.dart';
 import 'package:picki/Screens/Login/components/background.dart';
 import 'package:picki/Screens/Login/components/rounded_Input.dart';
 import 'package:picki/Screens/Login/components/rounded_password.dart';
+import 'package:picki/Screens/SignUp/components/rounded_button.dart';
 import 'package:picki/Screens/SignUp/signup_screen.dart';
-import 'package:picki/components/rounded_button.dart';
-import 'package:picki/constant.dart';
 
 class Body extends StatelessWidget {
   const Body({
@@ -58,5 +57,5 @@ class Body extends StatelessWidget {
       ),
     );
   }
-}
+} 
 
