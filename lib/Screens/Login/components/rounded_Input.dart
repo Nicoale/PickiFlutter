@@ -4,15 +4,15 @@ import 'package:picki/constant.dart';
 
 
 class RoundedInputField extends StatelessWidget {
-  final String hintText;
-  final IconData icon;
-  final   ValueChanged<String> onChanged;
   const RoundedInputField({
     Key key, 
     this.hintText,
      this.icon = Icons.person,
       this.onChanged,
   }) : super(key: key);
+  final String hintText;
+  final IconData icon;
+  final   ValueChanged<String> onChanged;
 
   @override
   Widget build(BuildContext context) {

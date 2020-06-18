@@ -3,11 +3,11 @@ import 'package:picki/Screens/Login/components/text_field.dart';
 import 'package:picki/constant.dart';
 
 class RoundedPasswordField extends StatelessWidget {
-  final ValueChanged<String> onChanged;
   const RoundedPasswordField({
     Key key, 
     this.onChanged,
   }) : super(key: key);
+  final ValueChanged<String> onChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class RoundedPasswordField extends StatelessWidget {
         obscureText: true,
         onChanged: onChanged,
         decoration: InputDecoration(
-          hintText: "Password",
+          hintText: 'Password',
           icon: Icon(
             Icons.lock,
             color: kPrimaryColor,
