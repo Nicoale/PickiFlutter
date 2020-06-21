@@ -6,7 +6,8 @@ import 'package:picki/Screens/Login/components/rounded_password.dart';
 import 'package:picki/Screens/SignUp/components/rounded_button.dart';
 import 'package:picki/Screens/SignUp/signup_screen.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
+import 'package:http/http.dart' as http;
+import 'package:picki/api/environment.dart' as environment;
 
 class Body extends StatelessWidget {
   const Body({
@@ -32,7 +33,8 @@ class Body extends StatelessWidget {
           SizedBox(height: size.height *0.03),
           RoundedInputField(
             hintText: 'Your  Email',
-            onChanged: (String value) {},
+            // onChanged: (String value) {},
+            
           ),
           RoundedPasswordField(
             onChanged: (String value) {},
@@ -57,6 +59,15 @@ class Body extends StatelessWidget {
         ],
       ),
     );
+  }
+  login(){
+    const payload = {
+      'email': "email",
+      'password': "strongpassword@"
+      };
+     return http.post(
+    environment.devUrl + 'riders_login/create', body: payload 
+     );
   }
 } 
 
