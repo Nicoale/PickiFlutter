@@ -4,6 +4,7 @@ import 'package:picki/Screens/SignUp/components/rounded_button.dart';
 import 'package:picki/Screens/Welcome/components/background.dart';
 import 'package:picki/constant.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:picki/Screens/SignUp/signup_screen.dart';
 
 
 class Body extends StatelessWidget {
