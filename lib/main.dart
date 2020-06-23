@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:picki/Screens/Login/login_screen.dart';
 import 'package:picki/constant.dart';
 
 void main() {
@@ -16,6 +17,7 @@ class MyApp extends StatelessWidget {
         primaryColor: kPrimaryColor,
         scaffoldBackgroundColor: Colors.white,
       ),
+      home: LoginScreen(),
     );
   }
 }
