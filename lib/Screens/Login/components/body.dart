@@ -1,3 +1,4 @@
+import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:picki/Screens/Login/components/already_have_an_account.dart';
 import 'package:picki/Screens/Login/components/background.dart';
@@ -7,21 +8,24 @@ import 'package:picki/Screens/SignUp/components/rounded_button.dart';
 import 'package:picki/Screens/SignUp/signup_screen.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:http/http.dart' as http;
+import 'package:picki/constant.dart';
 
-class _LoginData {
-  String email = '';
-  String password = '';
+// class _LoginData {
+//   String email = '';
+//   String password = '';
 }
 
 class Body extends StatelessWidget {
   Body({
     Key key,
   }) : super(key: key);
-  final GlobalKey<FormState> _formKey = new GlobalKey<FormState>();
-  _LoginData _data = new _LoginData();
+
+  // final GlobalKey<FormState> _formKey = new GlobalKey<FormState>();
+  // _LoginData _data = new _LoginData();
 
   @override
   String url = 'https:localhost/3000/api/v1';
+  final String assetName = 'assets/icons/cooking.svg';
   Future<String> makeRequest() async {
     final http.Response response = await http
         .get(Uri.encodeFull(url), headers: {'Accept': 'application/json'});
@@ -32,31 +36,38 @@ class Body extends StatelessWidget {
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
     return Background(
-        child: Form(
-      key: this._formKey,
+      //   child: Form(
+      // key: this._formKey,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
+          Padding(
+            padding: EdgeInsets.only(left: size.width * 0.06),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
           Text(
             'LOGIN',
-            style: TextStyle(fontWeight: FontWeight.bold),
+            style: TextStyle(fontWeight: FontWeight.bold
+                      fontSize: size.height * 0.04,
+                      color: kPrimaryColor),            
+            ),
+        ],
+            ),
           ),
-          SizedBox(height: size.height * 0.03),
+          SizedBox(height: size.height * 0.02),
           SvgPicture.asset(
-            'assets/icons/cooking.svg',
-            height: size.height * 0.35,
+            assetName
+            // 'assets/icons/cooking.svg',
+            // height: size.height * 0.35,
           ),
           SizedBox(height: size.height * 0.03),
           RoundedInputField(
             hintText: 'Your  Email',
-            onChanged: (String value) {
-              this._data.email = value;
-            },
+            onChanged: (String value) {},
           ),
           RoundedPasswordField(
-            onChanged: (String value) { 
-              this._data.password = value;
-              },
+            onChanged: (String value) {},
           ),
           RoundedButton(
             text: 'LOGIN',
@@ -65,13 +76,14 @@ class Body extends StatelessWidget {
             },
           ),
           SizedBox(height: size.height * 0.03),
-          AlreadyHaveAccountWidget(
-            press: () {
+          GestureDetector(
+            onTap: () {
               Navigator.push(context,
                   MaterialPageRoute<dynamic>(builder: (BuildContext context) {
                 return SignUpScreen();
               }));
             },
+            child: AlreadyHaveAccountWidget(),
           ),
         ],
       ),
