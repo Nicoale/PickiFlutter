@@ -13,7 +13,7 @@ import 'package:picki/constant.dart';
 // class _LoginData {
 //   String email = '';
 //   String password = '';
-}
+
 
 class Body extends StatelessWidget {
   Body({
@@ -48,7 +48,7 @@ class Body extends StatelessWidget {
         children: <Widget>[
           Text(
             'LOGIN',
-            style: TextStyle(fontWeight: FontWeight.bold
+            style: TextStyle(fontWeight: FontWeight.bold,
                       fontSize: size.height * 0.04,
                       color: kPrimaryColor),            
             ),
@@ -87,6 +87,7 @@ class Body extends StatelessWidget {
           ),
         ],
       ),
-    ));
+    );
+    ),
   }
 }
