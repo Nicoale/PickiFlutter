@@ -69,7 +69,7 @@ class Body extends StatelessWidget {
                 return LoginScreen();
               }));
             },
-            child: AlreadyHaveAccountWidget(),
+            child: const AlreadyHaveAccountWidget(),
           ),
           OrDivider(),
           Row(

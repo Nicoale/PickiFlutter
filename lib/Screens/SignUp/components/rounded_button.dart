@@ -33,10 +33,10 @@ class RoundedButton extends StatelessWidget {
             text,
             style: TextStyle(color:Colors.white),
           ),
-             icon: Icon(
-            Icons.arrow_forward,
-            color: Colors.white,
-          ),
+          // icon: Icon(
+          //   Icons.arrow_forward,
+          //   color: Colors.white,
+          // ),
         ),
       ),
     );
